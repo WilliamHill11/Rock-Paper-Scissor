@@ -30,7 +30,7 @@
             return 'that is not a valid selection'
         }
     }
-
+    
     //Score
     let computerScore = 0;
     let playerScore = 0;
@@ -38,18 +38,18 @@
 
     // 5 round game
     function game() {
-        gameFinished = false
-        while (gameFinish) {
+        gameFinished = true
+        while (gameFinished) {
             const playerSelection = prompt('rock, paper, scissor?').toLowerCase();
             const computerSelection = getComputerChoice();
             console.log(playRound(playerSelection, computerSelection))
             console.log(`Player: ${playerScore}, Computer: ${computerScore}`)
             if (computerScore === 5) {
                 console.log('Computer is the almighty champion')
-                gameFinished = true
+                gameFinished = false
             } else if (playerScore === 5) {
                 console.log('Player is the almighty champion')
-                gameFinished = true
+                gameFinished = false
             }
         }
     }
