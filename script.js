@@ -94,6 +94,27 @@ function game() {
         } else if (playerScore === 5) {
             console.log('Player is the almighty champion')
             gameFinished = false
+    
+    //Score
+    let computerScore = 0;
+    let playerScore = 0;
+    
+
+    // 5 round game
+    function game() {
+        gameFinished = true
+        while (gameFinished) {
+            const playerSelection = prompt('rock, paper, scissor?').toLowerCase();
+            const computerSelection = getComputerChoice();
+            console.log(playRound(playerSelection, computerSelection))
+            console.log(`Player: ${playerScore}, Computer: ${computerScore}`)
+            if (computerScore === 5) {
+                console.log('Computer is the almighty champion')
+                gameFinished = false
+            } else if (playerScore === 5) {
+                console.log('Player is the almighty champion')
+                gameFinished = false
+            }
         }
     }
 }
