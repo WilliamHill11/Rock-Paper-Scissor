@@ -8,13 +8,10 @@ function getComputerChoice() {
 const rock = document.querySelector('#option1');
 const paper = document.querySelector('#option2');
 const scissor = document.querySelector('#option3');
-const container = document.querySelector('#container');
-const content = document.createElement('div');
 const para = document.createElement('p');
 const restartGame = document.querySelector('#restart');
-
-//Appending div into html container
-container.appendChild(content);
+const scoreBoardBox = document.querySelector('.scoreboard');
+const resultBox = document.querySelector('.result');
 
 //Restart button
 restartGame.addEventListener('click', (e) => {
@@ -32,49 +29,49 @@ let playerScore = 0;
 function playRound (playerSelection, computerSelection) {
     if (playerSelection === 'rock' && computerSelection === 'scissor') {
         para.textContent = "You win rock beats scissor";
-        content.append(para);
+        scoreBoardBox.append(para);
         return playerScore++ 
     } else if (playerSelection === 'paper' && computerSelection === 'rock') {
         para.textContent = 'You win paper beats rock';
-        content.append(para);
+        scoreBoardBox.append(para);
         return playerScore++
     } else if (playerSelection === 'scissor' && computerSelection === 'paper') {
         para.textContent = 'You win scissor beats paper';
-        content.append(para);
+        scoreBoardBox.append(para);
         return playerScore++
     } else if (computerSelection === 'rock' && playerSelection === 'scissor') {
         para.textContent = 'Computer wins rock beats your scissor';
-        content.append(para);
+        scoreBoardBox.append(para);
         return computerScore++
     } else if (computerSelection === 'paper' && playerSelection === 'rock') {
         para.textContent = 'Computer wins paper beats your rock';
-        content.append(para);
+        scoreBoardBox.append(para);
         return computerScore++
     } else if (computerSelection === 'scissor' && playerSelection === 'paper') {
         para.textContent = 'Computer wins scissor beats your paper';
-        content.append(para);
+        scoreBoardBox.append(para);
         return computerScore++
     } else if (computerSelection === playerSelection) {
         para.textContent = "It's a tie!";
-        content.append(para);
+        scoreBoardBox.append(para);
     }
 }
 
 //Rock selection
 rock.addEventListener('click', function(e) {
-    playRound('rock', getComputerChoice());
+    playRound('rock', getComputerChoice()); 
     scoreBoard.textContent = `Player: ${playerScore} Computer: ${computerScore}`;
-    content.append(scoreBoard);
+    resultBox.append(scoreBoard);
     if (computerScore === 5) {
-        para.textContent = 'The computer is the almighty champion';
-        content.append(para);
+        para.textContent = 'LOSSSEERRRR!';
+        resultBox.append(para);
         alert('You LOST!')
             playerScore = 0
             computerScore = 0
     }
     else if (playerScore === 5) {
-        para.textContent = 'You are the almighty champion';
-        content.append(para);
+        para.textContent = 'WINNER!!!!!';
+        resultBox.append(para);
         alert('You Win!')
             playerScore = 0
             computerScore = 0
@@ -85,17 +82,17 @@ rock.addEventListener('click', function(e) {
 paper.addEventListener('click', function(e) {
     playRound('paper', getComputerChoice());
     scoreBoard.textContent = `Player: ${playerScore} Computer: ${computerScore}`;
-    content.append(scoreBoard);
+    resultBox.append(scoreBoard);
     if (computerScore === 5) {
-        para.textContent = 'The computer is the almighty champion';
-        content.append(para);
+        para.textContent = 'LOSSSEERRRR!';
+        resultBox.append(para);
         alert('You LOST!')
             playerScore = 0
             computerScore = 0
     }
     else if (playerScore === 5) {
-        para.textContent = 'You are the almighty champion';
-        content.append(para);
+        para.textContent = 'WINNER!!!!!';
+        resultBox.append(para);
         alert('You Win!')
             playerScore = 0
             computerScore = 0
@@ -106,17 +103,17 @@ paper.addEventListener('click', function(e) {
 scissor.addEventListener('click', function(e) {
     playRound('scissor', getComputerChoice());
     scoreBoard.textContent = `Player: ${playerScore} Computer: ${computerScore}`;
-    content.append(scoreBoard);
+    resultBox.append(scoreBoard);
     if (computerScore === 5) {
-        para.textContent = 'The computer is the almighty champion';
-        content.append(para);
+        para.textContent = 'LOSSSEERRRR!';
+        resultBox.append(para);
         alert('You LOST!')
             playerScore = 0
             computerScore = 0
     }
     else if (playerScore === 5) {
-        para.textContent = 'You are the almighty champion';
-        content.append(para);
+        para.textContent = 'WINNER!!!!!';
+        resultBox.append(para);
         alert('You Win!')
         playerScore = 0
         computerScore = 0

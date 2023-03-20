@@ -16,6 +16,7 @@ h1 {
     padding: 16px;
     font-size: 64px;
     border-radius: 64px;
+    box-shadow: 5px 5px 5px darkblue inset;
     font-family: 'Bungee Inline', cursive;
     font-family: 'Bungee Shade', cursive;
 }
@@ -25,19 +26,31 @@ h1 {
     justify-content: center;
 }
 
+.title {
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    font-family: 'Bungee Inline', cursive;
+    color: darkblue;
+    font-size: 20px;
+    text-decoration-line: underline;
+}
+
 .buttons {
     display: flex;
     flex-direction: column;
-    width: 125px;
+    width: 100px;
     gap: 24px;
     justify-content: center;
+    align-self: center;
 }
 
 button {
-    height: 50px;
+    height: 35px;
     background-color: blueviolet;
     border-radius: 5px;
     border: 2px solid black;
+    font-weight: bold;
 }
 
 .button2 {
@@ -48,20 +61,25 @@ button {
 .scoreboard,
 .result {
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width: 200px;
     height: 200px;
     border: 5px solid black;
     margin: 24px;
-    
+    box-shadow: 5px 5px 5px darkblue;
+    font-weight: bold;
 }
 
 .image {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 75px;
+    margin-top: 40px;
     background-image: url(picture.jpg);
     background-repeat: no-repeat;
     width: 450px;
     height: 300px;
 }
+
