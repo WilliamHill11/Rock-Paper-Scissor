@@ -63,7 +63,7 @@ function playRound (playerSelection, computerSelection) {
 //Rock selection
 rock.addEventListener('click', function(e) {
     playRound('rock', getComputerChoice());
-    scoreBoard.textContent = `Player: ${playerScore}, Computer: ${computerScore}`;
+    scoreBoard.textContent = `Player: ${playerScore} Computer: ${computerScore}`;
     content.append(scoreBoard);
     if (computerScore === 5) {
         para.textContent = 'The computer is the almighty champion';
@@ -84,7 +84,7 @@ rock.addEventListener('click', function(e) {
 //Paper selection
 paper.addEventListener('click', function(e) {
     playRound('paper', getComputerChoice());
-    scoreBoard.textContent = `Player: ${playerScore}, Computer: ${computerScore}`;
+    scoreBoard.textContent = `Player: ${playerScore} Computer: ${computerScore}`;
     content.append(scoreBoard);
     if (computerScore === 5) {
         para.textContent = 'The computer is the almighty champion';
@@ -105,7 +105,7 @@ paper.addEventListener('click', function(e) {
 //Scissor selection
 scissor.addEventListener('click', function(e) {
     playRound('scissor', getComputerChoice());
-    scoreBoard.textContent = `Player: ${playerScore}, Computer: ${computerScore}`;
+    scoreBoard.textContent = `Player: ${playerScore} Computer: ${computerScore}`;
     content.append(scoreBoard);
     if (computerScore === 5) {
         para.textContent = 'The computer is the almighty champion';
