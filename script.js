@@ -1,58 +1,128 @@
-    // Get random selection from rock, paper, scissor
-    function getComputerChoice() {
-        let selection = ['rock', 'paper', 'scissor'];
-        return selection[Math.floor(Math.random() * selection.length)];
-    }
+// Get random selection from rock, paper, scissor
+function getComputerChoice() {
+    let selection = ['rock', 'paper', 'scissor'];
+    return selection[Math.floor(Math.random() * selection.length)];
+}
 
-    // Possibilities of which player wins
-    function playRound (playerSelection, computerSelection) {
-        if (playerSelection === 'rock' && computerSelection === 'scissor') {
-            console.log('Player wins, rock beats scissor')
-            return playerScore++ 
-        } else if (playerSelection === 'paper' && computerSelection === 'rock') {
-            console.log('Player wins, paper beats rock')
-            return playerScore++
-        } else if (playerSelection === 'scissor' && computerSelection === 'paper') {
-            console.log('Player wins, scissor beats paper')
-            return playerScore++
-        } else if (computerSelection === 'rock' && playerSelection === 'scissor') {
-            console.log('Computer, rock beats scissor')
-            return computerScore++
-        } else if (computerSelection === 'paper' && playerSelection === 'rock') {
-            console.log('Computer wins, paper beats rock')
-            return computerScore++
-        } else if (computerSelection === 'scissor' && playerSelection === 'paper') {
-            console.log('Computer wins, scissor beats paper')
-            return computerScore++
-        } else if (computerSelection === playerSelection) {
-            return 'it\'s a draw'
-        } else {
-            return 'that is not a valid selection'
-        }
-    }
-    
-    //Score
-    let computerScore = 0;
-    let playerScore = 0;
-    
+// Getting all the elements from html
+const rock = document.querySelector('#option1');
+const paper = document.querySelector('#option2');
+const scissor = document.querySelector('#option3');
+const container = document.querySelector('#container');
+const content = document.createElement('div');
+const para = document.createElement('p');
+const restartGame = document.querySelector('#restart');
 
-    // 5 round game
-    function game() {
-        gameFinished = true
-        while (gameFinished) {
-            const playerSelection = prompt('rock, paper, scissor?').toLowerCase();
-            const computerSelection = getComputerChoice();
-            console.log(playRound(playerSelection, computerSelection))
-            console.log(`Player: ${playerScore}, Computer: ${computerScore}`)
-            if (computerScore === 5) {
-                console.log('Computer is the almighty champion')
-                gameFinished = false
-            } else if (playerScore === 5) {
-                console.log('Player is the almighty champion')
-                gameFinished = false
-            }
-        }
-    }
+//Appending div into html container
+container.appendChild(content);
 
-    game()
-    
+//Restart button
+restartGame.addEventListener('click', (e) => {
+    location.reload();
+});
+
+
+//Score
+const scoreBoard = document.createElement('p');
+let computerScore = 0;
+let playerScore = 0;
+        
+
+// Possibilities of which player wins
+function playRound (playerSelection, computerSelection) {
+    if (playerSelection === 'rock' && computerSelection === 'scissor') {
+        para.textContent = "You win rock beats scissor";
+        content.append(para);
+        return playerScore++ 
+    } else if (playerSelection === 'paper' && computerSelection === 'rock') {
+        para.textContent = 'You win paper beats rock';
+        content.append(para);
+        return playerScore++
+    } else if (playerSelection === 'scissor' && computerSelection === 'paper') {
+        para.textContent = 'You win scissor beats paper';
+        content.append(para);
+        return playerScore++
+    } else if (computerSelection === 'rock' && playerSelection === 'scissor') {
+        para.textContent = 'Computer wins rock beats your scissor';
+        content.append(para);
+        return computerScore++
+    } else if (computerSelection === 'paper' && playerSelection === 'rock') {
+        para.textContent = 'Computer wins paper beats your rock';
+        content.append(para);
+        return computerScore++
+    } else if (computerSelection === 'scissor' && playerSelection === 'paper') {
+        para.textContent = 'Computer wins scissor beats your paper';
+        content.append(para);
+        return computerScore++
+    } else if (computerSelection === playerSelection) {
+        para.textContent = "It's a tie!";
+        content.append(para);
+    }
+}
+
+//Rock selection
+rock.addEventListener('click', function(e) {
+    playRound('rock', getComputerChoice());
+    scoreBoard.textContent = `Player: ${playerScore}, Computer: ${computerScore}`;
+    content.append(scoreBoard);
+    if (computerScore === 5) {
+        para.textContent = 'The computer is the almighty champion';
+        content.append(para);
+        alert('You LOST!')
+            playerScore = 0
+            computerScore = 0
+    }
+    else if (playerScore === 5) {
+        para.textContent = 'You are the almighty champion';
+        content.append(para);
+        alert('You Win!')
+            playerScore = 0
+            computerScore = 0
+    }
+});
+
+//Paper selection
+paper.addEventListener('click', function(e) {
+    playRound('paper', getComputerChoice());
+    scoreBoard.textContent = `Player: ${playerScore}, Computer: ${computerScore}`;
+    content.append(scoreBoard);
+    if (computerScore === 5) {
+        para.textContent = 'The computer is the almighty champion';
+        content.append(para);
+        alert('You LOST!')
+            playerScore = 0
+            computerScore = 0
+    }
+    else if (playerScore === 5) {
+        para.textContent = 'You are the almighty champion';
+        content.append(para);
+        alert('You Win!')
+            playerScore = 0
+            computerScore = 0
+    }
+});
+
+//Scissor selection
+scissor.addEventListener('click', function(e) {
+    playRound('scissor', getComputerChoice());
+    scoreBoard.textContent = `Player: ${playerScore}, Computer: ${computerScore}`;
+    content.append(scoreBoard);
+    if (computerScore === 5) {
+        para.textContent = 'The computer is the almighty champion';
+        content.append(para);
+        alert('You LOST!')
+            playerScore = 0
+            computerScore = 0
+    }
+    else if (playerScore === 5) {
+        para.textContent = 'You are the almighty champion';
+        content.append(para);
+        alert('You Win!')
+        playerScore = 0
+        computerScore = 0
+}
+});
+
+
+// if (playerSelection === 'rock' && computerSelection === 'scissor' || playerSelection === 'paper' && computerSelection
+// === 'rock' || playerSelection === 'scissor' && computerSelection === 'paper' )
